@@ -70,6 +70,15 @@ By achieving these goals, the project not only delivers a strong land-cover clas
 
 # Data Description
 
+<p align="center">
+  <img src="results/sentinel2_band_overview.png" width="650"/>
+</p>
+
+*Figure&nbsp;1 – Sentinel-2 Multi-Spectral Instrument (MSI) band layout.  
+Bands 2–4 (B = Blue, G = Green, R = Red) are combined into the RGB patch used in EuroSAT;  
+additional NIR / SWIR bands are shown for context.*
+
+
 **EuroSAT** is a public land-cover classification dataset based on Sentinel-2 satellite imagery. The dataset consists of **27,000** image patches (64×64 pixels each, 3 RGB channels) labeled across **10 classes**, with each class representing a distinct land use or land cover type. The ten classes in the EuroSAT **RGB** dataset are:
 
 * **Annual Crop:** Fields of annual crops (e.g. cereals, vegetables).
@@ -135,6 +144,9 @@ Training machine learning models can be resource-intensive, so we quantified the
 
 **Emission results:** The entire end-to-end run (data loading, training for 18 epochs, evaluation, and generating outputs) took about **25 minutes** on the GPU. The estimated carbon emission for this computation was extremely low: approximately **0.005 kg of CO₂** (5 grams of CO₂). This amount is roughly equivalent to the emissions from driving a typical car for only about 0.03 km – in other words, negligible. The low carbon footprint is attributed to the relatively short training time and the efficiency of the hardware. Additionally, our use of early stopping saved us from running unnecessary extra epochs, further reducing the environmental impact.
 
+<p align="center">
+  <img src="results/energy_breakdown.png" width="460"/>
+</p>
 It’s worth noting that CodeCarbon uses regional electricity carbon intensity data to improve accuracy. Our Colab session ran in a Google data center (US region), which has a certain mix of energy sources. Running the same training in a region with a greener electricity grid could yield an even lower CO₂ estimate. Conversely, a longer or more complex training (or a larger model) would produce more emissions. By tracking this metric, we align with best practices in **sustainable AI**, acknowledging the environmental cost of computing.
 
 Overall, **0.005 kg CO₂** for a \~98% accurate land-cover classifier demonstrates that valuable Earth observation insights can be gained at minimal climate cost when using efficient resources. This is an encouraging result for green AI efforts. We include the CodeCarbon report (`emissions.csv`) in the repository for transparency. Going forward, one can further reduce emissions by optimizing code, using renewable-energy-powered infrastructure, or improving model efficiency.
