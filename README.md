@@ -12,6 +12,10 @@
     Using ResNet-50 to classify land cover types from EuroSAT satellite imagery, with Grad-CAM++ explainability and carbon footprint analysis.
 </p>
 
+<p align="center">
+ZheYi Liu    （22052258）
+</p>
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -45,6 +49,13 @@
     </li>
   </ol>
 </details>
+
+
+
+
+
+
+
 
 <!-- ABOUT THE PROJECT -->
 
