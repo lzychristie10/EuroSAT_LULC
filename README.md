@@ -228,6 +228,23 @@ After training the ResNet-50 model on EuroSAT, we achieved strong results:
 * **Early Stopping Epoch:** The model converged quickly – the best performance was reached at epoch 18, after which training was stopped to prevent overfitting. The final model from epoch 18 was used for evaluation.
 * **Confusion Matrix:** (See figure above.) The confusion matrix highlights excellent performance, with most images correctly classified (dark diagonal). Only a few confusions occurred between similar classes. For example, **AnnualCrop vs PermanentCrop** were occasionally confused (as these can appear visually similar crops), and there was minor overlap in predictions for **River vs Sea/Lake** (both involve water, though the model largely differentiates them by context and shape).
 * **Classification Report:** All classes achieved very high precision and recall (mostly in the 97–100% range). The lowest accuracy among classes was for the crop classes, which still exceeded \~95% accuracy. Classes like *Residential*, *Forest*, *Sea/Lake* were nearly perfectly classified (99–100% precision/recall).
+
+
+| Class | Precision | Recall | F1-score |
+| :--- | ---: | ---: | ---: |
+| AnnualCrop | 0.97 | 0.96 | 0.96 |
+| Forest | 0.99 | 1.00 | 0.99 |
+| HerbVeg | 0.98 | 0.98 | 0.98 |
+| Highway | 0.97 | 0.98 | 0.97 |
+| Industrial | 0.99 | 0.99 | 0.99 |
+| Pasture | 0.96 | 0.97 | 0.97 |
+| PermanentCrop | 0.96 | 0.95 | 0.95 |
+| Residential | 0.99 | 0.99 | 0.99 |
+| River | 0.97 | 0.97 | 0.97 |
+| Sea/Lake | 1.00 | 0.99 | 0.99 |
+| **Macro avg** | **0.98** | **0.98** | **0.98** |
+
+
 * **Visual Explanations:** Grad-CAM++ analysis confirmed that the model’s attention aligns with meaningful features (see the Grad-CAM section). This gives additional confidence in the results, beyond the raw accuracy numbers.
 
 Overall, the project succeeded in building a land-cover classifier that performs at a level comparable to state-of-the-art for the EuroSAT dataset. The model’s errors are limited and make intuitive sense (e.g., confusing two crop types, or a river vs a narrow lake). With 98.4% accuracy, the model can be reliably used to identify land cover in similar Sentinel-2 image patches. Moreover, the integration of explainability and carbon accounting enriches the results: we not only have a high-performing model, but we also understand *why* it predicts what it does and what the training cost was in environmental terms.
