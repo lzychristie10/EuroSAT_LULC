@@ -1,0 +1,17 @@
+name: eurosat
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - scikit-learn
+  - pillow
+  - tqdm
+  - pip
+  - pip:
+      - torchgeo
+      - codecarbon
+      - grad-cam
+      - seaborn
